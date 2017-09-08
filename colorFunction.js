@@ -10,13 +10,12 @@ var h1 = document.querySelector("h1");
 var resetButton = document.getElementById("reset");
 var modeButtons = document.querySelectorAll(".mode");
 
-init(); //on page load
+init(); 
 
 function init() {
-	//modeButtons event listener
-	setupModeButtons();
+	setupModeButtons();  
 	setupSquares();
- 	reset();
+ 	reset();  // display new colors on page load
 }
 
 //easy and hard buttons
@@ -38,7 +37,6 @@ function setupModeButtons() {
 
 function setupSquares() {
 	for (var i = 0; i < squares.length; i++) {
-	//add click listener to squares
 	squares[i].addEventListener("click", function () {
 		//grab color of clicked square
 		var clickedColor = this.style.backgroundColor;
@@ -56,7 +54,6 @@ function setupSquares() {
  	}
 }
 
-
 	function changeColors(color){
 		for (var i = 0; i < squares.length; i++) {
 			//loop through all squares
@@ -72,29 +69,25 @@ function pickColor() {
 }
 
 function generateRandomColors(num) {
-	//make array
+	// random colors to be generated on every reset, num dependent on difficulty
 	var arr = [];
-	//repeat num times
 	for(var i = 0; i < num; i++) {
-		//get random color and push to arr
 		arr.push(randomColor());
 	}
-	//return that array
 	return arr;
 }
 
 function randomColor() {
-	//pick a red 0 - 255
+	//pick a red value
 	var r = Math.floor(Math.random() * 256);
-	//pick a green 0 - 255
+	//pick a green value
 	var g = Math.floor(Math.random() * 256);
-	//pick a blue 0 - 255
+	//pick a blue value
 	var b = Math.floor(Math.random() * 256);
 	return "rgb(" + r + ", " + g + ", " + b + ")";
 }
 
-
-//BUTTONS
+// RESET function and BUTTON
 
 resetButton.addEventListener("click", function () {
 	reset();
@@ -121,7 +114,6 @@ function reset() {
 	h1.style.backgroundColor = "burlywood";
 	messageDisplay.textContent = null; 
 	resetButton.textContent = "New Colors";
-
 }
 
 
